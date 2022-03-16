@@ -18,8 +18,8 @@ function style() {
     let monitorIndex = 0;
     monitorIndex < OsdWindowManager._osdWindows.length;
     monitorIndex++
-  ) {
-    OsdWindowManager._osdWindows[monitorIndex]._box.add_style_class_name(
+  ) {    
+    OsdWindowManager._osdWindows[monitorIndex]._hbox.add_style_class_name(
       "osd-transparency"
     );
   }
@@ -31,7 +31,7 @@ function unstyle() {
     monitorIndex < OsdWindowManager._osdWindows.length;
     monitorIndex++
   ) {
-    OsdWindowManager._osdWindows[monitorIndex]._box.remove_style_class_name(
+    OsdWindowManager._osdWindows[monitorIndex]._hbox.remove_style_class_name(
       "osd-transparency"
     );
   }
@@ -80,8 +80,8 @@ function enable() {
       let transparency = _settings.get_boolean("transparency");
       transparency ? style() : unstyle();
 
-      this._box.translation_x = (h_percent * monitor.width) / 100;
-      this._box.translation_y = (v_percent * monitor.height) / 100;
+      this._hbox.translation_x = (h_percent * monitor.width) / 100;
+      this._hbox.translation_y = (v_percent * monitor.height) / 100;
 
       this._icon.icon_size = (osd_size * monitor.height) / 100 / 2;
       this._boxConstraint._minSize = (osd_size * monitor.height) / 100;
